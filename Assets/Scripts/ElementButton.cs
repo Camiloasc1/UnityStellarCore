@@ -12,6 +12,11 @@ namespace StellarCore
         [SerializeField] private Text _amountText;
         [SerializeField] private uint _amount;
 
+        public Elements Element
+        {
+            get { return _element; }
+        }
+
         public uint Amount
         {
             get { return _amount; }
