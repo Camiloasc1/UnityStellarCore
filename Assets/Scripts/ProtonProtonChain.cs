@@ -126,22 +126,31 @@ namespace StellarCore
 
         private void Equation6()
         {
-
+            _Be7.Amount--;
+//            _proton.Amount--;
+            _random.Element = Elements.B8;
+            //TODO energy++
         }
 
         private void Equation7()
         {
+            _random.Element = Elements.Be8;
+            //TODO charge++
+            //TODO neutrinos++
+            //TODO energy++
         }
 
         private void Equation8()
         {
+            _He4.Amount++;
+            //TODO energy++
         }
 
         private void Equation9()
         {
             _He3.Amount--;
 //            _proton.Amount--;
-            _He4.Amount ++;
+            _He4.Amount++;
             //TODO charge++
             //TODO neutrinos++
             //TODO energy++
