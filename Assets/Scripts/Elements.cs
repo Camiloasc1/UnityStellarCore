@@ -12,7 +12,9 @@ namespace StellarCore
         He3,
         He4,
         Be7,
-        Li7
+        Li7,
+        B8,
+        Be8
     }
 
     public static class ElementsExt
@@ -35,6 +37,10 @@ namespace StellarCore
                     return "Be-7";
                 case Elements.Li7:
                     return "Li-7";
+                case Elements.B8:
+                    return "B-8";
+                case Elements.Be8:
+                    return "Be-8";
                 default:
                     throw new ArgumentOutOfRangeException("element", element, null);
             }
