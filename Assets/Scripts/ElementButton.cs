@@ -27,6 +27,7 @@ namespace StellarCore
         {
 #if UNITY_EDITOR
             _elementText.text = _element.GetText();
+            _amountText.gameObject.SetActive(!(_element == Elements.Proton || _element == Elements.Electron));
 #endif
         }
     }
