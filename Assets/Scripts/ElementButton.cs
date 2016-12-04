@@ -23,12 +23,22 @@ namespace StellarCore
             }
         }
 
+        private void Start()
+        {
+            InitTextLabels();
+        }
+
         private void Update()
         {
 #if UNITY_EDITOR
+            InitTextLabels();
+#endif
+        }
+
+        private void InitTextLabels()
+        {
             _elementText.text = _element.GetText();
             _amountText.gameObject.SetActive(!(_element == Elements.Proton || _element == Elements.Electron));
-#endif
         }
     }
 
