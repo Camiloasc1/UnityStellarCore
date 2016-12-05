@@ -23,35 +23,35 @@ namespace StellarCore.Test
             Assert.AreEqual(_stats.Charge, 0);
 
             _stats.Charge++;
-            Assert.That(_stats.Energy, Is.EqualTo(1.02 * 0).Within(.001));
+            Assert.That(_stats.Energy, Is.EqualTo(1.022 * 0).Within(.001));
             Assert.AreEqual(_stats.Charge, 1);
 
             _stats.Charge++;
-            Assert.That(_stats.Energy, Is.EqualTo(1.02 * 0).Within(.001));
+            Assert.That(_stats.Energy, Is.EqualTo(1.022 * 0).Within(.001));
             Assert.AreEqual(_stats.Charge, 2);
 
             _stats.Charge--;
-            Assert.That(_stats.Energy, Is.EqualTo(1.02 * 1).Within(.001));
+            Assert.That(_stats.Energy, Is.EqualTo(1.022 * 1).Within(.001));
             Assert.AreEqual(_stats.Charge, 1);
 
             _stats.Charge--;
-            Assert.That(_stats.Energy, Is.EqualTo(1.02 * 2).Within(.001));
+            Assert.That(_stats.Energy, Is.EqualTo(1.022 * 2).Within(.001));
             Assert.AreEqual(_stats.Charge, 0);
 
             _stats.Charge--;
-            Assert.That(_stats.Energy, Is.EqualTo(1.02 * 2).Within(.001));
+            Assert.That(_stats.Energy, Is.EqualTo(1.022 * 2).Within(.001));
             Assert.AreEqual(_stats.Charge, -1);
 
             _stats.Charge--;
-            Assert.That(_stats.Energy, Is.EqualTo(1.02 * 2).Within(.001));
+            Assert.That(_stats.Energy, Is.EqualTo(1.022 * 2).Within(.001));
             Assert.AreEqual(_stats.Charge, -2);
 
             _stats.Charge++;
-            Assert.That(_stats.Energy, Is.EqualTo(1.02 * 3).Within(.001));
+            Assert.That(_stats.Energy, Is.EqualTo(1.022 * 3).Within(.001));
             Assert.AreEqual(_stats.Charge, -1);
 
             _stats.Charge++;
-            Assert.That(_stats.Energy, Is.EqualTo(1.02 * 4).Within(.001));
+            Assert.That(_stats.Energy, Is.EqualTo(1.022 * 4).Within(.001));
             Assert.AreEqual(_stats.Charge, 0);
         }
 
@@ -62,27 +62,27 @@ namespace StellarCore.Test
             Assert.AreEqual(_stats.Charge, 0);
 
             _stats.Charge += 2;
-            Assert.That(_stats.Energy, Is.EqualTo(1.02 * 0).Within(.001));
+            Assert.That(_stats.Energy, Is.EqualTo(1.022 * 0).Within(.001));
             Assert.AreEqual(_stats.Charge, 2);
 
             _stats.Charge = 0;
-            Assert.That(_stats.Energy, Is.EqualTo(1.02 * 2).Within(.001));
+            Assert.That(_stats.Energy, Is.EqualTo(1.022 * 2).Within(.001));
             Assert.AreEqual(_stats.Charge, 0);
 
             _stats.Charge = -2;
-            Assert.That(_stats.Energy, Is.EqualTo(1.02 * 2).Within(.001));
+            Assert.That(_stats.Energy, Is.EqualTo(1.022 * 2).Within(.001));
             Assert.AreEqual(_stats.Charge, -2);
 
             _stats.Charge += 4;
-            Assert.That(_stats.Energy, Is.EqualTo(1.02 * 4).Within(.001));
+            Assert.That(_stats.Energy, Is.EqualTo(1.022 * 4).Within(.001));
             Assert.AreEqual(_stats.Charge, 2);
 
             _stats.Charge = -2;
-            Assert.That(_stats.Energy, Is.EqualTo(1.02 * 6).Within(.001));
+            Assert.That(_stats.Energy, Is.EqualTo(1.022 * 6).Within(.001));
             Assert.AreEqual(_stats.Charge, -2);
 
             _stats.Charge = 0;
-            Assert.That(_stats.Energy, Is.EqualTo(1.02 * 8).Within(.001));
+            Assert.That(_stats.Energy, Is.EqualTo(1.022 * 8).Within(.001));
             Assert.AreEqual(_stats.Charge, 0);
         }
     }
