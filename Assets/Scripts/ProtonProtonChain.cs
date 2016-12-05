@@ -2,6 +2,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 namespace StellarCore
 {
@@ -65,6 +66,9 @@ namespace StellarCore
                             break;
                         case Elements.Be7:
                             Equation6();
+                            return;
+                        case Elements.Li7:
+                            Equation5();
                             break;
                         default:
                             Wrong();
@@ -73,12 +77,12 @@ namespace StellarCore
                     break;
                 case Elements.Electron:
                     if (CurrentElement == Elements.Be7)
-                        Equation4();
-                    else
                     {
-                        //charge--;
+                        Equation4();
+                        break;
                     }
-                    break;
+                    //charge--;
+                    return;
                 case Elements.H2:
                     if (CurrentElement == Elements.Proton)
                     {
@@ -117,7 +121,7 @@ namespace StellarCore
                     {
                         case Elements.Proton:
                             Equation6();
-                            break;
+                            return;
                         case Elements.Electron:
                             Equation4();
                             break;
@@ -128,8 +132,12 @@ namespace StellarCore
                     break;
                 case Elements.Li7:
                     if (CurrentElement == Elements.Proton)
+                    {
                         Equation5();
-                    break;
+                        break;
+                    }
+                    Wrong();
+                    return;
                 case Elements.B8:
                     Equation7();
                     return;
@@ -140,7 +148,25 @@ namespace StellarCore
                     Wrong();
                     return;
             }
-            //TODO choise random element
+            RandomChoose();
+        }
+
+        private void RandomChoose()
+        {
+            //TODO improve choose random element
+            var value = Random.value;
+            if (value < .2)
+                CurrentElement = Elements.Proton;
+            else if (value < .4)
+                CurrentElement = Elements.H2;
+            else if (value < .6)
+                CurrentElement = Elements.He3;
+            else if (value < .8)
+                CurrentElement = Elements.He4;
+            else if (value < .9)
+                CurrentElement = Elements.Be7;
+            else
+                CurrentElement = Elements.Li7;
         }
 
         /// <summary>
@@ -248,7 +274,7 @@ namespace StellarCore
             }
 
             _Be7.Amount--;
-            _random.Element = Elements.B8;
+            CurrentElement = Elements.B8;
             //TODO energy++
         }
 
@@ -257,7 +283,7 @@ namespace StellarCore
         /// </summary>
         private void Equation7()
         {
-            _random.Element = Elements.Be8;
+            CurrentElement = Elements.Be8;
             //TODO charge++
             //TODO neutrinos++
             //TODO energy++
