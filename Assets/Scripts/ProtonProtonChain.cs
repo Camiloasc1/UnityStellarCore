@@ -8,6 +8,8 @@ namespace StellarCore
 {
     public class ProtonProtonChain : MonoBehaviour
     {
+        [SerializeField] private Stats _stats;
+        [SerializeField] private Settings _settings;
         [SerializeField] private ElementButton _proton;
         [SerializeField] private ElementButton _electron;
         [SerializeField] private ElementButton _H2;
@@ -81,7 +83,7 @@ namespace StellarCore
                         Equation4();
                         break;
                     }
-                    //charge--;
+                    _stats.Charge--;
                     return;
                 case Elements.H2:
                     if (CurrentElement == Elements.Proton)
@@ -175,9 +177,9 @@ namespace StellarCore
         private void Equation0()
         {
             _H2.Amount++;
-            //TODO charge++
-            //TODO neutrinos++
-            //TODO energy++
+            _stats.Charge++;
+            _stats.Neutrinos++;
+            _stats.Energy += 0.42f;
         }
 
         /// <summary>
@@ -193,7 +195,7 @@ namespace StellarCore
 
             _H2.Amount--;
             _He3.Amount++;
-            //TODO energy++
+            _stats.Energy += 5.49f;
         }
 
         /// <summary>
@@ -209,7 +211,7 @@ namespace StellarCore
 
             _He3.Amount -= 2;
             _He4.Amount++;
-            //TODO energy++
+            _stats.Energy += 12.86f;
         }
 
         /// <summary>
@@ -242,7 +244,7 @@ namespace StellarCore
 
             _Be7.Amount--;
             _Li7.Amount++;
-            //TODO neutrinos++
+            _stats.Neutrinos++;
             //TODO energy++
         }
 
@@ -284,8 +286,8 @@ namespace StellarCore
         private void Equation7()
         {
             CurrentElement = Elements.Be8;
-            //TODO charge++
-            //TODO neutrinos++
+            _stats.Charge++;
+            _stats.Neutrinos++;
             //TODO energy++
         }
 
@@ -311,8 +313,8 @@ namespace StellarCore
 
             _He3.Amount--;
             _He4.Amount++;
-            //TODO charge++
-            //TODO neutrinos++
+            _stats.Charge++;
+            _stats.Neutrinos++;
             //TODO energy++
         }
 
