@@ -68,7 +68,7 @@ namespace StellarCore
                             break;
                         default:
                             Wrong();
-                            break;
+                            return;
                     }
                     break;
                 case Elements.Electron:
@@ -81,9 +81,12 @@ namespace StellarCore
                     break;
                 case Elements.H2:
                     if (CurrentElement == Elements.Proton)
+                    {
                         Equation1();
+                        break;
+                    }
                     Wrong();
-                    break;
+                    return;
                 case Elements.He3:
                     switch (CurrentElement)
                     {
@@ -98,14 +101,17 @@ namespace StellarCore
                             break;
                         default:
                             Wrong();
-                            break;
+                            return;
                     }
                     break;
                 case Elements.He4:
                     if (CurrentElement == Elements.He3)
+                    {
                         Equation3();
+                        break;
+                    }
                     Wrong();
-                    break;
+                    return;
                 case Elements.Be7:
                     switch (CurrentElement)
                     {
@@ -117,7 +123,7 @@ namespace StellarCore
                             break;
                         default:
                             Wrong();
-                            break;
+                            return;
                     }
                     break;
                 case Elements.Li7:
@@ -132,7 +138,7 @@ namespace StellarCore
                     break;
                 default:
                     Wrong();
-                    break;
+                    return;
             }
             //TODO choise random element
         }
