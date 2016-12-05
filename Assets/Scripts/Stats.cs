@@ -21,9 +21,9 @@ namespace StellarCore
             set
             {
                 if (_charge > 0 && value < _charge)
-                    Energy += 1.02f * (_charge - Mathf.Max(value, 0));
+                    Energy += 1.022f * (_charge - Mathf.Max(value, 0));
                 if (_charge < 0 && value > _charge)
-                    Energy += 1.02f * Mathf.Min(value - _charge, -_charge);
+                    Energy += 1.022f * Mathf.Min(value - _charge, -_charge);
                 _charge = value;
             }
         }

@@ -6,6 +6,10 @@ using Random = UnityEngine.Random;
 
 namespace StellarCore
 {
+    /// <summary>
+    /// Energy amounts:
+    /// http://www2.astro.psu.edu/users/rbc/a534/lec13.pdf
+    /// </summary>
     public class ProtonProtonChain : MonoBehaviour
     {
         [SerializeField] private Stats _stats;
@@ -179,7 +183,7 @@ namespace StellarCore
             _H2.Amount++;
             _stats.Charge++;
             _stats.Neutrinos++;
-            _stats.Energy += 0.42f;
+            _stats.Energy += 0.420f;
         }
 
         /// <summary>
@@ -195,7 +199,7 @@ namespace StellarCore
 
             _H2.Amount--;
             _He3.Amount++;
-            _stats.Energy += 5.49f;
+            _stats.Energy += 5.493f;
         }
 
         /// <summary>
@@ -211,7 +215,7 @@ namespace StellarCore
 
             _He3.Amount -= 2;
             _He4.Amount++;
-            _stats.Energy += 12.86f;
+            _stats.Energy += 12.859f;
         }
 
         /// <summary>
@@ -228,7 +232,7 @@ namespace StellarCore
             _He3.Amount--;
             _He4.Amount--;
             _Be7.Amount++;
-            //TODO energy++
+            _stats.Energy += 1.586f;
         }
 
         /// <summary>
@@ -245,7 +249,7 @@ namespace StellarCore
             _Be7.Amount--;
             _Li7.Amount++;
             _stats.Neutrinos++;
-            //TODO energy++
+            _stats.Energy += 0.861f;
         }
 
         /// <summary>
@@ -261,7 +265,7 @@ namespace StellarCore
 
             _Li7.Amount--;
             _He4.Amount += 2;
-            //TODO energy++
+            _stats.Energy += 17.347f;
         }
 
         /// <summary>
@@ -277,7 +281,7 @@ namespace StellarCore
 
             _Be7.Amount--;
             CurrentElement = Elements.B8;
-            //TODO energy++
+            _stats.Energy += 0.135f;
         }
 
         /// <summary>
@@ -288,7 +292,6 @@ namespace StellarCore
             CurrentElement = Elements.Be8;
             _stats.Charge++;
             _stats.Neutrinos++;
-            //TODO energy++
         }
 
         /// <summary>
@@ -297,7 +300,7 @@ namespace StellarCore
         private void Equation8()
         {
             _He4.Amount += 2;
-            //TODO energy++
+            _stats.Energy += 17.051f;//Shared with (7)
         }
 
         /// <summary>
@@ -315,6 +318,7 @@ namespace StellarCore
             _He4.Amount++;
             _stats.Charge++;
             _stats.Neutrinos++;
+            _stats.Energy += 18.78f;
             //TODO energy++
         }
 
