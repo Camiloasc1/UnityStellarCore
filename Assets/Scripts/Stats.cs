@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 namespace StellarCore
 {
@@ -8,6 +9,8 @@ namespace StellarCore
     {
         [SerializeField] private Settings _settings;
         [SerializeField] private Charge _chargeUI;
+        [SerializeField] private Energy _energyUI;
+        [SerializeField] private Neutrinos _neutrinosUI;
         [SerializeField] private float _energy;
         [SerializeField] private int _charge;
         [SerializeField] private uint _neutrinos;
@@ -15,7 +18,11 @@ namespace StellarCore
         public float Energy
         {
             get { return _energy; }
-            set { _energy = value; }
+            set
+            {
+                _energy = value;
+                _energyUI.SetValue(_energy / _settings.EnergyScale, _settings.EnergyColorGradient);
+            }
         }
 
         public int Charge
@@ -49,21 +56,39 @@ namespace StellarCore
     [Serializable]
     public struct Charge
     {
-        public RectTransform Negative;
-        public RectTransform Positive;
+        public GameObject Negative;
+        public GameObject Positive;
 
-        public void SetValue(float charge)
+        public void SetValue(float value)
         {
-            if (charge < 0)
+            if (value < 0)
             {
-                Negative.localScale = new Vector3(Mathf.Clamp01(-charge), 1, 1);
-                Positive.localScale = new Vector3(0, 1, 1);
+                Negative.GetComponent<RectTransform>().localScale = new Vector3(Mathf.Clamp01(-value), 1, 1);
+                Positive.GetComponent<RectTransform>().localScale = new Vector3(0, 1, 1);
             }
             else
             {
-                Negative.localScale = new Vector3(0, 1, 1);
-                Positive.localScale = new Vector3(Mathf.Clamp01(charge), 1, 1);
+                Negative.GetComponent<RectTransform>().localScale = new Vector3(0, 1, 1);
+                Positive.GetComponent<RectTransform>().localScale = new Vector3(Mathf.Clamp01(value), 1, 1);
             }
         }
+    }
+
+    [Serializable]
+    public struct Energy
+    {
+        public GameObject Image;
+
+        public void SetValue(float value, Gradient gradient)
+        {
+            value = Mathf.Clamp01(value);
+            Image.GetComponent<RectTransform>().localScale = new Vector3(value, 1, 1);
+            Image.GetComponent<Image>().color = gradient.Evaluate(value);
+        }
+    }
+
+    [Serializable]
+    public struct Neutrinos
+    {
     }
 }
