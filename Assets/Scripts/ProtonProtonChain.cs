@@ -319,7 +319,6 @@ namespace StellarCore
             _stats.Charge++;
             _stats.Neutrinos++;
             _stats.Energy += 18.78f;
-            //TODO energy++
         }
 
         private void Wrong()

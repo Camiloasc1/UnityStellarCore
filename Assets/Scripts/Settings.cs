@@ -4,9 +4,11 @@ using System.Collections;
 
 namespace StellarCore
 {
-    [Serializable]
-    public struct Settings
+    public class Settings : MonoBehaviour
     {
-        [SerializeField] private float _massLossRate;
+        [SerializeField] private float _massLossRate = 1;
+        [SerializeField] private AnimationCurve _massLossCurve;
+        [SerializeField] private float _chargeScale = 25;
+        [SerializeField] private float _energyScale = 1000;
     }
 }

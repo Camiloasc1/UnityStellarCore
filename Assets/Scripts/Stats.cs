@@ -5,6 +5,7 @@ namespace StellarCore
 {
     public class Stats : MonoBehaviour
     {
+        [SerializeField] private Settings _settings;
         [SerializeField] private float _energy;
         [SerializeField] private int _charge;
         [SerializeField] private uint _neutrinos;
